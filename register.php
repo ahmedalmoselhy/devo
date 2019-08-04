@@ -1,5 +1,25 @@
 <?php
 include "db_connection.php";
+
+if(isset($_POST['reg_btn'])){
+
+    // getting values
+    $fname = strip_tags($_POST['reg_fname']);
+    $lname = strip_tags($_POST['reg_lname']);
+    $email = strip_tags($_POST['reg_email']);
+    $email2 = strip_tags($_POST['reg_email2']);
+    $pass = strip_tags($_POST['reg_password']);
+    $pass2 = strip_tags($_POST['reg_password2']);
+
+    // removing spaces
+    $fname = str_replace(' ', '', $fname);
+    $lname = str_replace(' ', '', $lname);
+    $email = str_replace(' ', '', $email);
+    $email2 = str_replace(' ', '', $email2);
+
+    // get date of registery
+    $date = date("Y-m-d");
+}
 ?>
 <html>
 
