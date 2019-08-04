@@ -19,6 +19,25 @@ if(isset($_POST['reg_btn'])){
 
     // get date of registery
     $date = date("Y-m-d");
+
+    if($email === $email2){
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+        }
+        else{
+            echo "Invalid Email Format";
+        }
+    }
+    else{
+        echo "Emails don't match";
+    }
+
+    if($pass === $pass2){
+        // check 
+    }
+    else{
+        echo "Passwords don't match";
+    }
 }
 ?>
 <html>
