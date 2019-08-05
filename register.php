@@ -22,7 +22,16 @@ if(isset($_POST['reg_btn'])){
 
     if($email === $email2){
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+            // check email format
             $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+            // check if email already exists in the database
+            $query = "SELECT email FROM users WHERE email = '$email'";
+            $email_check = mysqli_query($con, $query);
+            $num_rows = mysqli_num_rows($email_check);
+            if($num_rows > 0){
+                echo "Email already in use";
+            }
         }
         else{
             echo "Invalid Email Format";
@@ -53,7 +62,6 @@ if(isset($_POST['reg_btn'])){
         <input type="text" name="reg_lname" placeholder="Last Name" required>
         <br>
         <input type="email" name="reg_email" placeholder="Email" required>
-        <br>
         <br>
         <input type="email" name="reg_email2" placeholder="Confirm Email" required>
         <br>
