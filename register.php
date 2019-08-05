@@ -71,6 +71,20 @@ if(isset($_POST['reg_btn'])){
     if(strlen($lname) > 25 || strlen($lname) < 2){
         array_push($error_array, "Last name can't be more than 25 characters or less than 2 characters") ;
     }
+    if(empty($error_array)){
+        // Encrypt password
+        $pass = md5($pass);
+        // Generate username\
+        $username = strtolower($fname . "_" . $lname);
+        $check_un = mysqli_query($con, "SELECT username FROM users WHERE username = '$username'");
+        $i = 0;
+        while(mysqli_num_rows($check_un) != 0){
+            $i++;
+            $username = $username . "_" . $i;
+            $check_un = mysqli_query($con, "SELECT username FROM users WHERE username = '$username'");
+        }
+        
+    }
 }
 ?>
 <html>
