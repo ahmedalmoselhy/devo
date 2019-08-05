@@ -44,10 +44,15 @@ if(isset($_POST['reg_btn'])){
 
     // Checking password
     if($pass === $pass2){
-        // check 
+        if(preg_match('/[^A-Za-z0-9]/', $pass)){
+            echo "Your password can only contain english letters or numbers";
+        } 
     }
     else{
         echo "Passwords don't match";
+    }
+    if(strlen($pass) > 30 || strlen($pass < 5)){
+        echo "Your password must be between 5 and 30 characters";
     }
 
     // Check name length
