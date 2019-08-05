@@ -1,6 +1,6 @@
 <?php
 include "db_connection.php";
-
+session_start();
 if(isset($_POST['reg_btn'])){
 
     // getting values
@@ -19,6 +19,14 @@ if(isset($_POST['reg_btn'])){
 
     // get date of registery
     $date = date("Y-m-d");
+
+    // store values in session
+    $_SESSION['reg_fname'] = $fname;
+    $_SESSION['reg_lname'] = $lname;
+    $_SESSION['reg_email'] = $email;
+    $_SESSION['reg_email2'] = $email2;
+    $_SESSION['reg_password'] = $pass;
+    $_SESSION['reg_password2'] = $pass2;
 
     // Validating Email
     if($email === $email2){
@@ -72,17 +80,25 @@ if(isset($_POST['reg_btn'])){
 
 <body>
     <form action="register.php" method="post">
-        <input type="text" name="reg_fname" placeholder="First Name" required>
+        <input type="text" name="reg_fname" placeholder="First Name" value="<?php if(isset($_SESSION['reg_fname'])){
+            echo $_SESSION['reg_fname'];
+        } ?>" required>
         <br>
-        <input type="text" name="reg_lname" placeholder="Last Name" required>
+        <input type="text" name="reg_lname" placeholder="Last Name" value="<?php if(isset($_SESSION['reg_lname'])){
+            echo $_SESSION['reg_lname'];
+        } ?>" required>
         <br>
-        <input type="email" name="reg_email" placeholder="Email" required>
+        <input type="email" name="reg_email" placeholder="Email" value="<?php if(isset($_SESSION['reg_email'])){
+            echo $_SESSION['reg_email'];
+        } ?>" required>
         <br>
-        <input type="email" name="reg_email2" placeholder="Confirm Email" required>
+        <input type="email" name="reg_email2" placeholder="Confirm Email" value="<?php if(isset($_SESSION['reg_email2'])){
+            echo $_SESSION['reg_email2'];
+        } ?>" required>
         <br>
         <input type="password" name="reg_password" placeholder="Password" required>
         <br>
-        <input type="email" name="reg_password2" placeholder="Confirm Password" required>
+        <input type="password" name="reg_password2" placeholder="Confirm Password" required>
         <br>
         <input type="submit" name="reg_btn" value="Register">
     </form>
