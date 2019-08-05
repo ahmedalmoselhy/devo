@@ -20,6 +20,7 @@ if(isset($_POST['reg_btn'])){
     // get date of registery
     $date = date("Y-m-d");
 
+    // Validating Email
     if($email === $email2){
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             // check email format
@@ -41,11 +42,20 @@ if(isset($_POST['reg_btn'])){
         echo "Emails don't match";
     }
 
+    // Checking password
     if($pass === $pass2){
         // check 
     }
     else{
         echo "Passwords don't match";
+    }
+
+    // Check name length
+    if(strlen($fname) > 25 || strlen($fname) < 2){
+        echo "First name can't be more than 25 characters or less than 2 characters";
+    }
+    if(strlen($lname) > 25 || strlen($lname) < 2){
+        echo "Last name can't be more than 25 characters or less than 2 characters";
     }
 }
 ?>
