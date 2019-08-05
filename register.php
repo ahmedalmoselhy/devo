@@ -1,6 +1,7 @@
 <?php
 include "db_connection.php";
 session_start();
+$error_array = array();
 if(isset($_POST['reg_btn'])){
 
     // getting values
@@ -39,36 +40,36 @@ if(isset($_POST['reg_btn'])){
             $email_check = mysqli_query($con, $query);
             $num_rows = mysqli_num_rows($email_check);
             if($num_rows > 0){
-                echo "Email already in use";
+                array_push($error_array, "Email already in use");
             }
         }
         else{
-            echo "Invalid Email Format";
+            array_push($error_array, "Invalid Email Format") ;
         }
     }
     else{
-        echo "Emails don't match";
+        array_push($error_array, "Emails don't match") ;
     }
 
     // Checking password
     if($pass === $pass2){
         if(preg_match('/[^A-Za-z0-9]/', $pass)){
-            echo "Your password can only contain english letters or numbers";
+            array_push($error_array, "Your password can only contain english letters or numbers") ;
         } 
     }
     else{
-        echo "Passwords don't match";
+        array_push($error_array, "Passwords don't match") ;
     }
     if(strlen($pass) > 30 || strlen($pass < 5)){
-        echo "Your password must be between 5 and 30 characters";
+        array_push($error_array, "Your password must be between 5 and 30 characters") ;
     }
 
     // Check name length
     if(strlen($fname) > 25 || strlen($fname) < 2){
-        echo "First name can't be more than 25 characters or less than 2 characters";
+        array_push($error_array, "First name can't be more than 25 characters or less than 2 characters") ;
     }
     if(strlen($lname) > 25 || strlen($lname) < 2){
-        echo "Last name can't be more than 25 characters or less than 2 characters";
+        array_push($error_array, "Last name can't be more than 25 characters or less than 2 characters") ;
     }
 }
 ?>
@@ -80,19 +81,23 @@ if(isset($_POST['reg_btn'])){
 
 <body>
     <form action="register.php" method="post">
-        <input type="text" name="reg_fname" placeholder="First Name" value="<?php if(isset($_SESSION['reg_fname'])){
+        <input type="text" name="reg_fname" placeholder="First Name" value="<?php 
+        if(isset($_SESSION['reg_fname'])){
             echo $_SESSION['reg_fname'];
         } ?>" required>
         <br>
-        <input type="text" name="reg_lname" placeholder="Last Name" value="<?php if(isset($_SESSION['reg_lname'])){
+        <input type="text" name="reg_lname" placeholder="Last Name" value="<?php 
+        if(isset($_SESSION['reg_lname'])){
             echo $_SESSION['reg_lname'];
         } ?>" required>
         <br>
-        <input type="email" name="reg_email" placeholder="Email" value="<?php if(isset($_SESSION['reg_email'])){
+        <input type="email" name="reg_email" placeholder="Email" value="<?php 
+        if(isset($_SESSION['reg_email'])){
             echo $_SESSION['reg_email'];
         } ?>" required>
         <br>
-        <input type="email" name="reg_email2" placeholder="Confirm Email" value="<?php if(isset($_SESSION['reg_email2'])){
+        <input type="email" name="reg_email2" placeholder="Confirm Email" value="<?php 
+        if(isset($_SESSION['reg_email2'])){
             echo $_SESSION['reg_email2'];
         } ?>" required>
         <br>
