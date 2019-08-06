@@ -27,8 +27,6 @@ if (isset($_POST['reg_btn'])) {
     $_SESSION['reg_lname'] = $lname;
     $_SESSION['reg_email'] = $email;
     $_SESSION['reg_email2'] = $email2;
-    $_SESSION['reg_password'] = $pass;
-    $_SESSION['reg_password2'] = $pass2;
 
     // Validating Email
     if ($email === $email2) {
@@ -90,6 +88,12 @@ if (isset($_POST['reg_btn'])) {
         $query = "INSERT INTO users VALUES ('','$fname', '$lname', '$username', '$email', '$pass', '$date', '$profile_pic', '0', '0', 'no', ',')";
 
         $insert = mysqli_query($con, $query);
+
+        // clear session
+        $_SESSION['reg_fname'] = "";
+        $_SESSION['reg_lname'] = "";
+        $_SESSION['reg_email'] = "";
+        $_SESSION['reg_email2'] = "";
     }
 }
 ?>
