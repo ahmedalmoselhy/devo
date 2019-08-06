@@ -1,6 +1,6 @@
 <?php
 include "db_connection.php";
-session_start();
+
 $error_array = array();
 $username;
 if (isset($_POST['reg_btn'])) {
