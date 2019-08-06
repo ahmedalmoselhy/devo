@@ -85,6 +85,10 @@ if(isset($_POST['reg_btn'])){
         }
         
     }
+
+    // Assign default profile picture
+    $rand = rand(1, 16);
+    $profile_pic = "assets/images/profile_pics/defaults/head_deep_blue.png";
 }
 ?>
 <html>
