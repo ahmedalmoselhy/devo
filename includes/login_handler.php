@@ -15,6 +15,14 @@ if(isset($_POST['log_btn'])){
         $row = mysqli_fetch_array($login);
         $username = $row['username'];
 
+        // Reopen closed account
+        $query2= "SELECT * FROM users WHERE email = '$email' AND user_closed = 'yes'";
+        $check_status = mysqli_query($con, $query2);
+        if(mysqli_num_rows($check_status) == 1){
+            $query3 = "UPDATE users SET user_closed = 'no' WHERE email = '$email'";
+            $reopen = mysqli_query($con, $query3);
+        }
+
         $_SESSION['username'] = $username;
         header("Location: index.php");
     }
