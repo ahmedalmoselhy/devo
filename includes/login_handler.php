@@ -18,5 +18,8 @@ if(isset($_POST['log_btn'])){
         $_SESSION['username'] = $username;
         header("Location: index.php");
     }
+    else{
+        array_push($error_array, "Email or password was incorrect");
+    }
 }
 ?>

@@ -13,9 +13,17 @@ include "includes/login_handler.php";
     <!-- Login Form -->
     <h3>Login</h3>
     <form action="register.php" method="post">
-        <input type="email" name="log_email" placeholder="Email Address">
+        <input type="email" name="log_email" placeholder="Email Address" value="<?php
+                                                                        if (isset($_SESSION['log_email'])) {
+                                                                            echo $_SESSION['log_email'];
+                                                                        } ?>" required>
         <br>
-        <input type="password" name = "log_password" placeholder="Password">
+        <input type="password" name = "log_password" placeholder="Password" required>
+        <?php
+        if(in_array("Email or password was incorrect", $error_array)){
+            echo "Email or password was incorrect<br>";
+        }
+        ?>
         <br>
         <input type="submit" name="log_btn" value="Login">
     </form>
