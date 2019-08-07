@@ -1,6 +1,7 @@
 <?php
 include "db_connection.php";
-include "includes/register_function.php";
+include "includes/register_handler.php";
+include "includes/login_handler.php";
 ?>
 <html>
 
@@ -9,6 +10,16 @@ include "includes/register_function.php";
 </head>
 
 <body>
+    <!-- Login Form -->
+    <h3>Login</h3>
+    <form action="register.php" method="post">
+        <input type="email" name="log_email" placeholder="Email Address">
+        <br>
+        <input type="password" name = "log_password" placeholder="Password">
+    </form>
+
+    <!-- Register Form -->
+    <h3>Register</h3>
     <form action="register.php" method="post">
         <input type="text" name="reg_fname" placeholder="First Name" value="<?php
                                                                             if (isset($_SESSION['reg_fname'])) {
