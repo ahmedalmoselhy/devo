@@ -16,6 +16,8 @@ include "includes/login_handler.php";
         <input type="email" name="log_email" placeholder="Email Address">
         <br>
         <input type="password" name = "log_password" placeholder="Password">
+        <br>
+        <input type="submit" name="log_btn" value="Login">
     </form>
 
     <!-- Register Form -->
