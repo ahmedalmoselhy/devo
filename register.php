@@ -13,7 +13,7 @@ include "includes/login_handler.php";
 <body>
     <div class="wrapper">
     <!-- Login Form -->
-    <h3 class="login_header">Login</h3>
+    <h1 class="login_header">Login</h1>
     <form action="register.php" method="post">
         <input type="email" name="log_email" placeholder="Email Address" value="<?php
                                                                         if (isset($_SESSION['log_email'])) {
@@ -31,7 +31,7 @@ include "includes/login_handler.php";
     </form>
 
     <!-- Register Form -->
-    <h3 class="login_header"    >Register</h3>
+    <h1 class="login_header">Register</h3>
     <form action="register.php" method="post">
         <input type="text" name="reg_fname" placeholder="First Name" value="<?php
                                                                             if (isset($_SESSION['reg_fname'])) {
