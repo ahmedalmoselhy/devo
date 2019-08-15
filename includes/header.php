@@ -2,6 +2,9 @@
 include "db_connection.php";
 if(isset($_SESSION['username'])){
     $userLoggedIn = $_SESSION['username'];
+    $query = "SELECT * FROM users WHERE username = '$userLoggedIn'";
+    $userdata = mysqli_query($con, $query);
+    $user = mysqli_fetch_array($userdata);
 }
 else{
     header("Location: register.php");
@@ -17,6 +20,7 @@ else{
 
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/all.css">
 </head>
 
 <body>

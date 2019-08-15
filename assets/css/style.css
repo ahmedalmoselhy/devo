@@ -31,3 +31,21 @@ body {
 a:hover{
     text-decoration: none;
 }
+
+nav {
+    float: right;
+    right: 1px;
+    position: absolute;
+    margin: 10px;
+}
+
+nav a {
+    position: relative;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+a i {
+    margin-left: 4px;
+}
