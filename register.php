@@ -13,6 +13,18 @@ include "includes/login_handler.php";
 </head>
 
 <body>
+    <?php
+    if(isset($_POST['reg_btn'])){
+        echo '
+        <script>
+            $(document).ready(function(){
+                $("#first").hide();
+                $("#second").show();
+            });
+        </script>
+        ';
+    }
+    ?>
     <div class="wrapper">
         <div class="login_box">
 
