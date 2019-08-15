@@ -1,13 +1,5 @@
-<?php
-include "db_connection.php";
-?>
-<html>
+<?php include "includes/header.php"; ?>
 
-<head>
-    <title>DEVO</title>
-</head>
-
-<body>
 HELLO!
 </body>
 
