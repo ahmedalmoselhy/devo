@@ -9,6 +9,7 @@
 
 body {
     line-height: 17px;
+    background-color: #e8e8e8;
 }
 
 .top_bar {
@@ -18,7 +19,28 @@ body {
     border-bottom: 5px solid #2980b9;
     margin: 0 0 10px 0;
     display: inline-flex;
+    position: fixed;
+    z-index: 10;
 }
+
+.wrapper {
+    margin: 0 auto;
+    top: 50px;
+    position: relative;
+    padding: 0 10px;
+    width: 80%;
+}
+
+.column {
+    background-color: #FFFFFF;
+    padding: 10px;
+    width: 27%;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px #d3d3d3;
+    z-index: -1;
+}
+
 .logo a {
     font-family: 'Bellota-BoldItalic';
     margin-left: 10px;
@@ -48,4 +70,10 @@ nav a {
 
 a i {
     margin-left: 4px;
+}
+
+.user_details {
+    width: 250px;
+    float: left;
+    margin-bottom: 20px;
 }
