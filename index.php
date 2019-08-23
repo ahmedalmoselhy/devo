@@ -1,9 +1,6 @@
 <?php include "includes/header.php"; ?>
     <?php include "user_details.php"; ?>
 
-    
-</div>
+    <?php include "newsfeed.php"; ?>
 
-</body>
-
-</html>
+<?php include "includes/footer.php"; ?>

@@ -23,23 +23,6 @@ body {
     z-index: 10;
 }
 
-.wrapper {
-    margin: 0 auto;
-    top: 50px;
-    position: relative;
-    padding: 0 10px;
-    width: 80%;
-}
-
-.column {
-    background-color: #FFFFFF;
-    padding: 10px;
-    width: 27%;
-    border: 1px solid #D3D3D3;
-    border-radius: 5px;
-    box-shadow: 2px 2px 1px #d3d3d3;
-    z-index: -1;
-}
 
 .logo a {
     font-family: 'Bellota-BoldItalic';
@@ -70,6 +53,23 @@ nav a {
 
 a i {
     margin-left: 4px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    top: 50px;
+    position: relative;
+    padding: 0 10px;
+    width: 80%;
+}
+
+.column {
+    background-color: #FFFFFF;
+    padding: 10px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px #d3d3d3;
+    z-index: -1;
 }
 
 .user_details {

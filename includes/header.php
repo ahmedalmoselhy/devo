@@ -26,3 +26,4 @@ else{
 <body>
     <?php include "includes/nav-bar.php"; ?>
     <div class="wrapper">
+        <div class="row">
