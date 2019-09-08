@@ -4,7 +4,7 @@
     </div>
 
     <nav>
-        <a href="#"><?php echo $user['fname']; ?></a>
+        <a href="<?php echo $userLoggedIn; ?>"><?php echo $user['fname']; ?></a>
         <a href="#"><i class="fa fa-home"></i></a>
         <a href="#"><i class="fa fa-envelope"></i></a>
         <a href="#"><i class="fa fa-bell"></i></a>

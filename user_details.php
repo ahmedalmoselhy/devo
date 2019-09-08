@@ -1,9 +1,9 @@
 <div class="user_details column side-bar col-4">
-    <a href="#">
+    <a href="<?php echo $userLoggedIn; ?>">
         <img src="<?php echo $user['profile_pic']; ?>" alt="">
     </a>
     <div class="user_details_left_right">
-        <a href="#">
+        <a href="<?php echo $userLoggedIn; ?>">
             <?php
             echo $user['fname'] . " " . $user['lname'];
             ?>
