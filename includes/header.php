@@ -1,5 +1,6 @@
 <?php
 include "db_connection.php";
+include "classes/User.php";
 if(isset($_SESSION['username'])){
     $userLoggedIn = $_SESSION['username'];
     $query = "SELECT * FROM users WHERE username = '$userLoggedIn'";
